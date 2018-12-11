@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '2*#fc3wkv+j%d@fj9&#rciq3ld@n636xe#@w#-&h2270r%wl7p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['checkseo.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -126,3 +126,7 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
