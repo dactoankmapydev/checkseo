@@ -5,7 +5,12 @@
 <h1>Trang phân tích</h1>
 <div class="container-fluid mb-2">
     <div class="row">
-        <input type="text" value="{{ domain }}" class="form-control bg-white col-md-10" readonly>
+        <div class="input-group col-md-10 px-0">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon">URL</span>
+            </div>
+            <input type="text" value="{{ domain }}" class="form-control bg-white" aria-describedby="basic-addon" readonly>
+        </div>
         <div id="score" class=""></div>
     </div>
 </div>
@@ -68,7 +73,8 @@
         </tr>
     </tbody>
 </table>
-<a href="{% url 'index' %}" class="btn btn-outline-info">Trở lại</a>
+<button type="button" class="btn btn-outline-danger mb-2" disabled>Cập nhật</button>
+<a href="{% url 'index' %}" class="btn btn-outline-info mb-2">Trở lại</a>
 <script>
     var table = document.getElementsByTagName('table')[0];
     var total = table.getElementsByClassName('far');
