@@ -2,9 +2,9 @@
 SECRET_KEY = '2*#fc3wkv+j%d@fj9&#rciq3ld@n636xe#@w#-&h2270r%wl7p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['checkseo.herokuapp.com']
 
 SECURE_SSL_REDIRECT = True
 
