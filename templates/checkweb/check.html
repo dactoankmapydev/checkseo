@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}Trang Phân Tích{% endblock %}
+{% block content %}
+<h1>Trang phân tích</h1>
+<div class="container-fluid mb-2">
+    <div class="row">
+        <input type="text" value="{{ domain }}" class="form-control bg-white col-md-10" readonly>
+        <div id="score" class=""></div>
+    </div>
+</div>
+<table class="table table-bordered table-hover">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col" width="15%">Thành phần</th>
+            <th scope="col" width="15%">Trạng thái</th>
+            <th scope="col" width="70%">Chi tiết</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Title -->
+        <tr>
+            <th scope="row">Tiêu đề</th>
+            <td class="text-center">
+                {% if title and title|length < 65 %}
+                <i class="far fa-check-circle text-success"></i>
+                {% else %}
+                <i class="far fa-times-circle text-danger"></i>
+                {% endif %}
+            </td>
+            <td>{{ title }}</td>
+        </tr>
+        <!-- Description -->
+        <tr>
+            <th scope="row">Mô tả</th>
+            <td class="text-center">
+                {% if description and description|length < 160 %}
+                <i class="far fa-check-circle text-success"></i>
+                {% else %}
+                <i class="far fa-times-circle text-danger"></i>
+                {% endif %}
+            </td>
+            <td>{{ description }}</td>
+        </tr>
+        <!-- Favicon -->
+        <tr>
+            <th scope="row">Favicon</th>
+            <td class="text-center">
+                {% if favicon %}
+                <i class="far fa-check-circle text-success"></i>
+                {% else %}
+                <i class="far fa-times-circle text-danger"></i>
+                {% endif %}
+            </td>
+            <td><img src="{{ favicon }}" alt="favicon" width="16px"></td>
+        </tr>
+        <!-- Robots -->
+        <tr>
+            <th scope="row">Robots</th>
+            <td class="text-center">
+                {% if robots %}
+                <i class="far fa-check-circle text-success"></i>
+                {% else %}
+                <i class="far fa-times-circle text-danger"></i>
+                {% endif %}
+            </td>
+            <td>{{ robots }}</td>
+        </tr>
+    </tbody>
+</table>
+<a href="{% url 'index' %}" class="btn btn-outline-info">Trở lại</a>
+<script>
+    var table = document.getElementsByTagName('table')[0];
+    var total = table.getElementsByClassName('far');
+    var success = table.getElementsByClassName('far fa-check-circle text-success');
+    var score = Math.round(success.length / total.length * 100);
+    document.getElementById('score').innerText = "Điểm: " + score;
+    if(score >= 80){
+        document.getElementById('score').className = "col-md-2 btn btn-success";
+    }
+    else if(score >= 50){
+        document.getElementById('score').className = "col-md-2 btn btn-warning";
+    }
+    else{
+        document.getElementById('score').className = "col-md-2 btn btn-danger";
+    }
+</script>
+{% endblock %}

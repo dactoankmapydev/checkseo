@@ -1,0 +1,21 @@
+/* body {
+    font-family: Roboto;
+    font-size: 2em;
+    background-color: lightyellow;
+}
+input {
+    border-radius: 5px;
+} */
+
+html{
+    position: relative;
+    min-height: 100%;
+}
+body{
+    margin-bottom: 50px;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

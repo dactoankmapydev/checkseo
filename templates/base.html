@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <!-- Custom -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}{% endblock %} | Đánh Giá Web</title>
+    <meta name="description" content="Trang phân tích đánh giá SEO cho website miễn phí">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="{% url 'index' %}" class="navbar-brand">Đánh Giá Web</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navhead" aria-controls="navhead" aria-expanded="false" aria-label="Toggle navbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navhead">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a href="{% url 'index' %}" class="nav-link">Trang chủ</a></li>
+                <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">Giới thiệu</a></li>
+                <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Liên hệ</a></li>
+                <li class="nav-item dropdown">
+                    <a href="/" class="nav-link dropdown-toggle" id="navdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thủ thuật</a>
+                    <div class="dropdown-menu" aria-labelledby="navdropdown">
+                        <a href="/" class="dropdown-item">Kỹ thuật SEO</a>
+                        <a href="/" class="dropdown-item">Tăng tốc độ tải trang</a>
+                        <a href="/" class="dropdown-item">Tối ưu hiển thị di động</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="/" class="nav-link">Tuyển dụng</a></li>
+                <li class="nav-item"><a href="/" class="nav-link disabled">Quảng cáo</a></li>
+            </ul>
+            <form action="/" method="get" class="form-inline my-2 my-lg-0">
+                <input type="search" name="" id="" class="form-control mr-sm-2" placeholder="Nhập vào url" aria-label="Search">
+                <button class="btn btn-info my-2 my-sm-0" type="submit">Tìm kiếm</button>
+            </form>
+        </div>
+    </nav>
+    <!-- Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-9">{% block content %}{% endblock %}</div>
+            <!-- Siderbar -->
+            <div class="col-md-3">
+                <div class="card mt-sm-3">
+                    <div class="card-header">Hàng đầu</div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="/">Google</a></li>
+                        <li class="list-group-item"><a href="/">YouTube</a></li>
+                    </ul>
+                </div>
+                <div class="card mt-2">
+                    <div class="card-header">Kiểm tra gần đây</div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="/">Google</a></li>
+                        <li class="list-group-item"><a href="/">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer bg-dark py-2">
+        <div class="container text-center">
+            <span class="text-light">Copyright &copy; Nguyễn Phước Thịnh</span>
+        </div>
+    </footer>
+</body>
+<!-- Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</html>
