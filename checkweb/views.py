@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .parser import parsing
+from .parser import parsing, reCaptcha
 
 def index(request):
     return render(request, 'checkweb/index.html')
@@ -13,15 +13,15 @@ def contact(request):
 def check(request):
     if request.method == 'POST':
         domain = request.POST['domain']
-        if(parsing(domain)):
-            context = parsing(domain)
-            context['domain'] = domain
+        # reCaptcha
+        if reCaptcha(request):
+            # Parsing
+            if(parsing(domain)):
+                context = parsing(domain)
+                context['domain'] = domain
+            else:
+                return render(request, 'checkweb/index.html', {'errURL': True, 'domain': domain})
+            return render(request, 'checkweb/check.html', context)
         else:
-            context = {
-                'error': True,
-                'domain': domain
-            }
-            return render(request, 'checkweb/index.html', context)
-        return render(request, 'checkweb/check.html', context)
-
+            return render(request, 'checkweb/index.html', {'errCC': True, 'domain': domain})
     return redirect('index')

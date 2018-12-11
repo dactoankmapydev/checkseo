@@ -7,9 +7,11 @@
     {% csrf_token %}
     <div class="form-group">
         <label for="domain">Kiểm tra địa chỉ:</label>
-        <input type="url" class="form-control{% if error %} border-danger" value="{{ domain }}"{% else %}"{% endif %} name="domain" id="domain" aria-describedby="domainHelp" placeholder="Nhập vào url" required>
-        <small id="domainHelp" class="form-text text-muted"><em>Lưu ý:</em> Điền đầy đủ 'http(s)://domain'</small>
+        <input type="url" class="form-control{% if errURL %} border-danger{% endif %}" value="{{ domain }}" name="domain" id="domain" placeholder="Nhập vào URL (có http://)" required>
+        {% if errURL %}<p><small class="text-danger"><em>* Không phân tích được URL. Vui lòng kiểm tra lại!</em></small></p>{% endif %}
     </div>
+    <div class="g-recaptcha mb-3" data-sitekey="6LeZNYAUAAAAAKHppgQrLFBB6sPjINgxfpSmlYFb"></div>
+    {% if errCC %}<p><small class="text-danger"><em>* Bạn chưa được kiểm tra không phải là robot!</em></small></p>{% endif %}
     <button type="submit" class="btn btn-outline-info">Kiểm tra</button>
 </form>
 {% endblock %}

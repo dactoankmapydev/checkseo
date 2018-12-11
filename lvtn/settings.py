@@ -123,6 +123,11 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'lvtn/static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
+# Google reCAPTCHA secret key
+# https://developers.google.com/recaptcha/docs/verify/
+
+GOOGLE_RECAPTCHA_SECRET_KEY = '6LeZNYAUAAAAAPaEKLH24SBNx6aTbPv7Vls1vINF'
+
 try:
     from .local_settings import *
 except ImportError:
