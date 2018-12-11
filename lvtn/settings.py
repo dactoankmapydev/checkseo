@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-SECURE_SSL_REDIRECT = True
 
 # Application definition
 
@@ -127,7 +126,3 @@ try:
     from .local_settings import *
 except ImportError:
     pass
-
-# Configure Django App for Heroku.
-import django_heroku
-django_heroku.settings(locals())
