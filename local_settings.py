@@ -7,7 +7,3 @@ DEBUG = False
 ALLOWED_HOSTS = ['checkseo.herokuapp.com']
 
 SECURE_SSL_REDIRECT = True
-
-# Configure Django App for Heroku.
-import django_heroku
-django_heroku.settings(locals())
