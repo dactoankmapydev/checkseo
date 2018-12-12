@@ -15,7 +15,7 @@ def reCaptcha(request):
 def parsing(domain):
     try:
         page = requests.get(domain)
-        content = html.fromstring(page.content)
+        content = html.fromstring(page.content.decode('utf-8'))
     except Exception:
         return False
 
