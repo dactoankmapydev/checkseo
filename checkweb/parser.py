@@ -3,14 +3,15 @@ from django.conf import settings
 import requests
 
 def reCaptcha(request):
-    response = request.POST['g-recaptcha-response']
-    data = {
-        'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
-        'response': response
-    }
-    verify = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
-    result = verify.json()
-    return result['success']
+    # response = request.POST['g-recaptcha-response']
+    # data = {
+    #     'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+    #     'response': response
+    # }
+    # verify = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+    # result = verify.json()
+    # return result['success']
+    return True
 
 def parsing(domain):
     try:
